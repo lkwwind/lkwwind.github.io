@@ -1,763 +1,484 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta name="description" content="Kewei Li — postdoctoral scholar in nanophotonics, thermal photonics, metasurfaces, and ultrafast laser–matter interaction.">
   <title>Kewei Li | Personal Website</title>
-
-  <!-- Font Awesome for icons -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-  >
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
+    :root {
+      --ink: #202124;
+      --muted: #62676d;
+      --accent: #137c8b;
+      --accent-dark: #0b5965;
+      --line: #e5e7eb;
+      --soft: #f6f8f9;
+      --nav-height: 74px;
+      --content-width: 1160px;
+    }
 
-    /* =========================
-       GENERAL PAGE STYLE
-       ========================= */
+    * {
+      box-sizing: border-box;
+    }
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: calc(var(--nav-height) + 24px);
     }
 
     body {
       margin: 0;
-      padding: 0;
-      background-color: #f0f0f0;
-      font-family: "Century Gothic", Arial, sans-serif;
-      color: #333;
+      color: var(--ink);
+      background: #fff;
+      font-family: "Lora", Georgia, serif;
+      font-size: 17px;
+      line-height: 1.75;
     }
 
     a {
-      color: #3C59CF;
+      color: var(--accent);
+      text-underline-offset: 3px;
     }
 
-
-    /* =========================
-       HEADER
-       ========================= */
-
-    header {
-      background-color: #3C59CF;
-      color: white;
-      padding: 35px 20px;
-      text-align: center;
+    a:hover {
+      color: var(--accent-dark);
     }
 
-    header h1 {
-      margin: 0 0 10px 0;
-      font-size: 2.5em;
-    }
-
-    header p {
-      margin: 6px 0;
-      font-size: 1.1em;
-    }
-
-    .social-links {
-      margin-top: 15px;
-    }
-
-    .social-icon {
-      color: white;
-      font-size: 27px;
-      text-decoration: none;
-      margin: 0 8px;
-      transition: opacity 0.3s;
-    }
-
-    .social-icon:hover {
-      opacity: 0.7;
-    }
-
-
-    /* =========================
-       NAVIGATION BAR
-       ========================= */
-
-    nav {
-      padding: 15px 10px;
-      text-align: center;
-      background-color: white;
-
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-
+    .site-nav {
       position: sticky;
       top: 0;
       z-index: 100;
+      min-height: var(--nav-height);
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(12px);
     }
 
-    nav a {
-      margin: 0 14px;
-
-      text-decoration: none;
-
-      color: #3C59CF;
-
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-
-    /* =========================
-       SECTIONS
-       ========================= */
-
-    section {
-      max-width: 900px;
-
-      margin: 30px auto;
-
-      background-color: white;
-
-      padding: 25px;
-
-      border-radius: 10px;
-
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.10);
-    }
-
-    h2 {
-      color: #3C59CF;
-
-      border-bottom: 2px solid #3C59CF;
-
-      padding-bottom: 7px;
-
-      margin-top: 0;
-    }
-
-    h3 {
-      margin-bottom: 5px;
-    }
-
-    p {
-      line-height: 1.7;
-    }
-
-    li {
-      line-height: 1.7;
-    }
-
-
-    /* =========================
-       ABOUT ME
-       ========================= */
-
-    .about-container {
+    .nav-inner {
+      width: min(calc(100% - 40px), var(--content-width));
+      min-height: var(--nav-height);
+      margin: 0 auto;
       display: flex;
-
       align-items: center;
+      gap: 34px;
+    }
 
-      gap: 30px;
+    .brand {
+      margin-right: auto;
+      color: var(--ink);
+      font-family: "Source Sans 3", Arial, sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      color: #404348;
+      font-family: "Source Sans 3", Arial, sans-serif;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .layout {
+      width: min(calc(100% - 40px), var(--content-width));
+      margin: 58px auto 72px;
+      display: grid;
+      grid-template-columns: 250px minmax(0, 1fr);
+      gap: clamp(48px, 7vw, 92px);
+      align-items: start;
+    }
+
+    .profile {
+      position: sticky;
+      top: calc(var(--nav-height) + 36px);
+      text-align: center;
     }
 
     .profile-photo {
       width: 190px;
       height: 190px;
-
       border-radius: 50%;
-
       object-fit: cover;
-
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
     }
 
-    .about-text {
-      flex: 1;
+    .profile h1 {
+      margin: 22px 0 2px;
+      font-family: "Source Sans 3", Arial, sans-serif;
+      font-size: 1.55rem;
+      line-height: 1.2;
     }
 
+    .role {
+      margin: 8px 0 0;
+      color: var(--muted);
+      line-height: 1.5;
+    }
 
-    /* =========================
-       RESEARCH
-       ========================= */
+    .affiliation {
+      margin: 2px 0 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .profile-links {
+      display: grid;
+      gap: 8px;
+      margin-top: 20px;
+      text-align: left;
+      font-family: "Source Sans 3", Arial, sans-serif;
+    }
+
+    .profile-links a,
+    .profile-links span {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #41464b;
+      text-decoration: none;
+    }
+
+    .profile-links a:hover {
+      color: var(--accent);
+    }
+
+    .profile-links i {
+      width: 20px;
+      color: var(--accent);
+      text-align: center;
+    }
+
+    .content {
+      min-width: 0;
+    }
+
+    section {
+      padding: 0 0 56px;
+      margin: 0 0 52px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    section:last-child {
+      margin-bottom: 0;
+      border-bottom: 0;
+    }
+
+    h2 {
+      margin: 0 0 22px;
+      font-family: "Source Sans 3", Arial, sans-serif;
+      font-size: clamp(1.9rem, 4vw, 2.5rem);
+      line-height: 1.2;
+      letter-spacing: -0.025em;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      font-family: "Source Sans 3", Arial, sans-serif;
+      font-size: 1.22rem;
+      line-height: 1.35;
+    }
+
+    p {
+      margin: 0 0 18px;
+    }
+
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
 
     .research-item {
-      margin-bottom: 30px;
+      padding: 22px;
+      background: var(--soft);
+      border-left: 3px solid var(--accent);
+      border-radius: 4px;
     }
 
-    .research-item:last-child {
-      margin-bottom: 0;
+    .research-item p {
+      margin: 0;
+      color: #4f5459;
+      font-size: 0.96rem;
+      line-height: 1.65;
     }
-
-    .research-item h3 {
-      color: #333;
-    }
-
-
-    /* =========================
-       PUBLICATIONS
-       ========================= */
 
     .publication {
-      margin-bottom: 20px;
+      padding: 20px 22px;
+      background: var(--soft);
+      border-radius: 4px;
     }
 
-    .publication-title {
-      font-weight: bold;
+    .scholar-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: 12px;
+      font-family: "Source Sans 3", Arial, sans-serif;
+      font-weight: 700;
+      text-decoration: none;
     }
 
-    .publication-journal {
-      font-style: italic;
+    .timeline {
+      display: grid;
+      gap: 24px;
     }
-
-
-    /* =========================
-       EDUCATION
-       ========================= */
 
     .education-item {
-      margin-bottom: 25px;
+      position: relative;
+      padding-left: 24px;
+      border-left: 2px solid var(--line);
     }
 
-    .education-item h3 {
-      margin-bottom: 3px;
+    .education-item::before {
+      content: "";
+      position: absolute;
+      left: -6px;
+      top: 8px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
     }
 
     .institution {
-      color: #555;
-      font-weight: bold;
+      color: var(--accent-dark);
+      font-family: "Source Sans 3", Arial, sans-serif;
+      font-weight: 600;
     }
 
-    .details {
-      color: #777;
-      font-size: 0.95em;
+    .education-item p {
+      margin: 8px 0 0;
+      color: var(--muted);
     }
 
-
-    /* =========================
-       CONTACT
-       ========================= */
+    .contact-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
 
     .contact-item {
-      margin: 10px 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      font-family: "Source Sans 3", Arial, sans-serif;
     }
 
     .contact-item i {
-      width: 25px;
-
-      color: #3C59CF;
+      width: 22px;
+      color: var(--accent);
+      text-align: center;
     }
-
-
-    /* =========================
-       FOOTER
-       ========================= */
 
     footer {
+      padding: 24px 20px;
+      color: var(--muted);
+      background: var(--soft);
+      border-top: 1px solid var(--line);
       text-align: center;
-
-      padding: 20px;
-
-      margin-top: 30px;
-
-      color: #777;
-
-      font-size: 0.9em;
+      font-family: "Source Sans 3", Arial, sans-serif;
+      font-size: 0.9rem;
     }
 
-
-    /* =========================
-       MOBILE DEVICES
-       ========================= */
-
-    @media (max-width: 700px) {
-
-      header h1 {
-        font-size: 2em;
+    @media (max-width: 860px) {
+      .nav-inner {
+        flex-wrap: wrap;
+        gap: 10px 22px;
+        padding: 14px 0;
       }
 
-      nav a {
-        display: inline-block;
-
-        margin: 6px 8px;
+      .brand {
+        width: 100%;
       }
 
-      section {
-        margin: 20px 12px;
-
-        padding: 20px;
+      .nav-links {
+        width: 100%;
+        gap: 18px;
+        overflow-x: auto;
+        padding-bottom: 2px;
       }
 
-      .about-container {
-        flex-direction: column;
+      .layout {
+        margin-top: 40px;
+        grid-template-columns: 1fr;
+        gap: 52px;
+      }
 
-        text-align: center;
+      .profile {
+        position: static;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 10px 28px;
+        text-align: left;
       }
 
       .profile-photo {
-        width: 160px;
-        height: 160px;
+        grid-row: 1 / 5;
+        width: 150px;
+        height: 150px;
       }
 
+      .profile h1 {
+        align-self: end;
+        margin-top: 0;
+      }
+
+      .profile-links {
+        grid-template-columns: repeat(2, minmax(0, max-content));
+        gap: 7px 22px;
+      }
     }
 
+    @media (max-width: 620px) {
+      body {
+        font-size: 16px;
+      }
+
+      .nav-inner,
+      .layout {
+        width: min(calc(100% - 28px), var(--content-width));
+      }
+
+      .profile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .profile-links {
+        grid-template-columns: 1fr;
+        text-align: left;
+      }
+
+      .research-grid,
+      .contact-list {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding-bottom: 42px;
+        margin-bottom: 42px;
+      }
+    }
   </style>
-
 </head>
-
-
 <body>
-
-
-<!-- ==================================================
-     HEADER
-     ================================================== -->
-
-<header>
-
-  <h1>Kewei Li, Ph.D.</h1>
-
-  <p>
-    Postdoctoral Scholar
-  </p>
-
-  <p>
-    Vanderbilt University
-  </p>
-
-  <div class="social-links">
-
-    <!-- GitHub
-    <a
-      class="social-icon"
-      href="https://github.com/lkwwind"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="GitHub"
-    >
-      <i class="fab fa-github"></i>
-    </a>
-    -->
-
-
-
-    <!-- ORCID -->
-    <a
-      class="social-icon"
-      href="https://orcid.org/0000-0003-3401-4796"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="ORCID"
-    >
-      <i class="fab fa-orcid"></i>
-    </a>
-
-
-
-    <!-- Google Scholar -->
-    <a
-      class="social-icon"
-      href="https://scholar.google.com/citations?hl=en&amp;user=PoCabYwAAAAJ&amp;view_op=list_works&amp;sortby=pubdate"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Google Scholar"
-    >
-      <i class="fas fa-graduation-cap"></i>
-    </a>
-    
-    <!-- LINKEDIN -->
-    <a
-      class="social-icon"
-      href="https://www.linkedin.com/in/kewei-li-5610a4195/"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="LinkedIn"
-    >
-      <i class="fab fa-linkedin"></i>
-    </a>
-
-    
-    <!-- Email -->
-    <a
-      class="social-icon"
-      href="mailto:lkwwind@gmail.com"
-      aria-label="Email"
-    >
-      <i class="fas fa-envelope"></i>
-    </a>
-
-  </div>
-
-</header>
-
-
-
-<!-- ==================================================
-     NAVIGATION
-     ================================================== -->
-
-<nav>
-
-  <a href="#about">About Me</a>
-
-  <a href="#research">Research</a>
-
-  <a href="#publications">Publications</a>
-
-  <a href="#education">Education</a>
-
-  <a href="#contact">Contact</a>
-
-</nav>
-
-
-
-<!-- ==================================================
-     ABOUT
-     ================================================== -->
-
-<section id="about">
-
-  <h2>About Me</h2>
-
-  <div class="about-container">
-
-
-    <!--
-    PROFILE PHOTO
-
-    Upload your photo to the same GitHub repository
-    and name it:
-
-    profile.jpg
-
-    Then remove the comment markers below.
-
-    <img
-      src="profile.jpg"
-      alt="Kewei Li"
-      class="profile-photo"
-    >
-    -->
-
-
-    <div class="about-text">
-
-      <p>
-        I am a Postdoctoral Scholar at Vanderbilt University.
-        My research focuses on nanophotonics, thermal photonics,
-        metasurfaces, ultrafast laser–matter interaction, and
-        micro/nanofabrication.
-      </p>
-
-      <p>
-        My research interests center on understanding and controlling
-        light–matter interactions at micro- and nanoscales. I am
-        particularly interested in the development of photonic and
-        material platforms for controlling thermal radiation,
-        optical fields, polarization, coherence, and energy transport.
-      </p>
-
-      <p>
-        I received my Ph.D. in Mechanical Engineering from Clemson
-        University, where my research focused on ultrafast
-        laser–matter interactions and laser-induced surface
-        structuring.
-      </p>
-
+  <nav class="site-nav" aria-label="Primary navigation">
+    <div class="nav-inner">
+      <a class="brand" href="#about">Kewei Li, Ph.D.</a>
+      <div class="nav-links">
+        <a href="#about">Home</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </div>
     </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- ==================================================
-     RESEARCH
-     ================================================== -->
-
-<section id="research">
-
-  <h2>Research</h2>
-
-
-  <!-- Research Topic 1 -->
-
-  <div class="research-item">
-
-    <h3>
-      Thermal Metasurfaces & Nanophotonics
-    </h3>
-
-    <p>
-      My research explores the design and experimental realization
-      of nanophotonic structures and metasurfaces for controlling
-      thermal radiation. Of particular interest are spectral
-      selectivity, directional emission, optical coherence,
-      polarization control, and high-Q optical resonances.
-    </p>
-
-  </div>
-
-
-  <!-- Research Topic 2 -->
-
-  <div class="research-item">
-
-    <h3>
-      Ultrafast Laser–Matter Interaction
-    </h3>
-
-    <p>
-      I study the interaction of ultrashort laser pulses with
-      materials, including transient optical responses,
-      laser-induced surface modification, and ultrafast energy
-      transfer processes. My previous work includes the formation
-      and physical mechanisms of laser-induced periodic surface
-      structures.
-    </p>
-
-  </div>
-
-
-  <!-- Research Topic 3 -->
-
-  <div class="research-item">
-
-    <h3>
-      Micro/Nanofabrication
-    </h3>
-
-    <p>
-      My research involves fabrication and characterization of
-      micro- and nanoscale photonic structures using techniques
-      including electron-beam lithography, photolithography,
-      thin-film deposition, lift-off, and optical characterization.
-    </p>
-
-  </div>
-
-
-  <!-- Research Topic 4 -->
-
-  <div class="research-item">
-
-    <h3>
-      Active & Ultrafast Photonics
-    </h3>
-
-    <p>
-      I am interested in active photonic systems that enable dynamic
-      control of wavelength, directionality, polarization, and
-      coherence. These concepts have potential applications in
-      infrared sensing, imaging, communication, thermal management,
-      and energy technologies.
-    </p>
-
-  </div>
-
-</section>
-
-
-
-<!-- ==================================================
-     PUBLICATIONS
-     ================================================== -->
-
-<section id="publications">
-
-  <h2>Selected Publications</h2>
-
-
-  <!--
-  Replace the examples below with your actual publications.
-
-  Recommended format:
-
-  Authors
-  Title
-  Journal, year
-  DOI link
-  -->
-
-
-  <div class="publication">
-
-    <p>
-
-      <span class="publication-title">
-        Selected publications will be added here.
-      </span>
-
-    </p>
-
-  </div>
-
-
-  <p>
-    View my complete and most up-to-date publication list on
-    <a
-      href="https://scholar.google.com/citations?hl=en&amp;user=PoCabYwAAAAJ&amp;view_op=list_works&amp;sortby=pubdate"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Google Scholar
-    </a>.
-  </p>
-
-</section>
-
-
-
-<!-- ==================================================
-     EDUCATION
-     ================================================== -->
-
-<section id="education">
-
-  <h2>Education</h2>
-
-
-  <div class="education-item">
-
-    <h3>
-      Ph.D. in Mechanical Engineering
-    </h3>
-
-    <div class="institution">
-      Clemson University
-    </div>
-
-    <p>
-      Research focus: ultrafast laser–matter interaction,
-      laser-based manufacturing, and laser-induced surface
-      structuring.
-    </p>
-
-  </div>
-
-
-  <div class="education-item">
-
-    <h3>
-      M.Eng. in Materials Engineering
-    </h3>
-
-    <div class="institution">
-      University of Chinese Academy of Sciences
-    </div>
-
-  </div>
-
-
-  <div class="education-item">
-
-    <h3>
-      B.S. in Applied Physics
-    </h3>
-
-    <div class="institution">
-      Shandong University
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- ==================================================
-     CONTACT
-     ================================================== -->
-
-<section id="contact">
-
-  <h2>Contact</h2>
-
-
-  <div class="contact-item">
-
-    <i class="fas fa-university"></i>
-
-    Vanderbilt University
-
-  </div>
-
-
-  <div class="contact-item">
-
-    <i class="fas fa-envelope"></i>
-
-    <a href="mailto:lkwwind@gmail.com">
-      lkwwind@gmail.com
-    </a>
-
-  </div>
-
-
-  <div class="contact-item">
-
-    <i class="fab fa-github"></i>
-
-    <a
-      href="https://github.com/lkwwind"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      GitHub
-    </a>
-
-  </div>
-
-
-  <!--
-
-  ADD LINKEDIN HERE
-
-  <div class="contact-item">
-
-    <i class="fab fa-linkedin"></i>
-
-    <a
-      href="YOUR-LINKEDIN"
-      target="_blank"
-    >
-      LinkedIn
-    </a>
-
-  </div>
-
-  -->
-
-
-  <div class="contact-item">
-
-    <i class="fas fa-graduation-cap"></i>
-
-    <a
-      href="https://scholar.google.com/citations?hl=en&amp;user=PoCabYwAAAAJ&amp;view_op=list_works&amp;sortby=pubdate"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Google Scholar
-    </a>
-
-  </div>
-
-</section>
-
-
-
-<!-- ==================================================
-     FOOTER
-     ================================================== -->
-
-<footer>
-
-  &copy; 2026 Kewei Li.
-  All Rights Reserved.
-
-</footer>
-
-
+  </nav>
+
+  <main class="layout">
+    <aside class="profile" aria-label="Profile">
+      <img class="profile-photo" src="https://avatars.githubusercontent.com/u/54851014?v=4" alt="Kewei Li" width="190" height="190">
+      <h1>Kewei Li, Ph.D.</h1>
+      <p class="role">Postdoctoral Scholar</p>
+      <p class="affiliation">Vanderbilt University</p>
+      <div class="profile-links">
+        <span><i class="fas fa-location-dot" aria-hidden="true"></i> Nashville, TN</span>
+        <a href="mailto:lkwwind@gmail.com"><i class="fas fa-envelope" aria-hidden="true"></i> Email</a>
+        <a href="https://github.com/lkwwind" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+        <a href="https://scholar.google.com/citations?hl=en&amp;user=PoCabYwAAAAJ&amp;view_op=list_works&amp;sortby=pubdate" target="_blank" rel="noopener noreferrer"><i class="fas fa-graduation-cap" aria-hidden="true"></i> Google Scholar</a>
+      </div>
+    </aside>
+
+    <article class="content">
+      <section id="about">
+        <h2>About</h2>
+        <p>I am a Postdoctoral Scholar at Vanderbilt University. My research focuses on nanophotonics, thermal photonics, metasurfaces, ultrafast laser–matter interaction, and micro/nanofabrication.</p>
+        <p>My research interests center on understanding and controlling light–matter interactions at micro- and nanoscales. I am particularly interested in developing photonic and material platforms for controlling thermal radiation, optical fields, polarization, coherence, and energy transport.</p>
+        <p>I received my Ph.D. in Mechanical Engineering from Clemson University, where my research focused on ultrafast laser–matter interactions and laser-induced surface structuring.</p>
+      </section>
+
+      <section id="research">
+        <h2>Research</h2>
+        <div class="research-grid">
+          <article class="research-item">
+            <h3>Thermal Metasurfaces &amp; Nanophotonics</h3>
+            <p>Design and experimental realization of nanophotonic structures and metasurfaces for controlling thermal radiation, including spectral selectivity, directional emission, optical coherence, polarization control, and high-Q resonances.</p>
+          </article>
+          <article class="research-item">
+            <h3>Ultrafast Laser–Matter Interaction</h3>
+            <p>Interactions of ultrashort laser pulses with materials, including transient optical responses, surface modification, ultrafast energy transfer, and laser-induced periodic surface structures.</p>
+          </article>
+          <article class="research-item">
+            <h3>Micro/Nanofabrication</h3>
+            <p>Fabrication and characterization of micro- and nanoscale photonic structures using electron-beam lithography, photolithography, thin-film deposition, lift-off, and optical characterization.</p>
+          </article>
+          <article class="research-item">
+            <h3>Active &amp; Ultrafast Photonics</h3>
+            <p>Active photonic systems for dynamic control of wavelength, directionality, polarization, and coherence, with applications in sensing, imaging, communication, thermal management, and energy technologies.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="publications">
+        <h2>Selected Publications</h2>
+        <div class="publication">
+          <h3>Publication list coming soon</h3>
+          <p>Selected articles and research highlights will be added here.</p>
+          <a class="scholar-link" href="https://scholar.google.com/citations?hl=en&amp;user=PoCabYwAAAAJ&amp;view_op=list_works&amp;sortby=pubdate" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+            View all publications on Google Scholar
+          </a>
+        </div>
+      </section>
+
+      <section id="education">
+        <h2>Education</h2>
+        <div class="timeline">
+          <div class="education-item">
+            <h3>Ph.D. in Mechanical Engineering</h3>
+            <div class="institution">Clemson University</div>
+            <p>Research focus: ultrafast laser–matter interaction, laser-based manufacturing, and laser-induced surface structuring.</p>
+          </div>
+          <div class="education-item">
+            <h3>M.Eng. in Materials Engineering</h3>
+            <div class="institution">University of Chinese Academy of Sciences</div>
+          </div>
+          <div class="education-item">
+            <h3>B.S. in Applied Physics</h3>
+            <div class="institution">Shandong University</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h2>Contact</h2>
+        <div class="contact-list">
+          <div class="contact-item"><i class="fas fa-university" aria-hidden="true"></i> Vanderbilt University</div>
+          <div class="contact-item"><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:lkwwind@gmail.com">lkwwind@gmail.com</a></div>
+          <div class="contact-item"><i class="fab fa-github" aria-hidden="true"></i> <a href="https://github.com/lkwwind" target="_blank" rel="noopener noreferrer">GitHub</a></div>
+          <div class="contact-item"><i class="fas fa-graduation-cap" aria-hidden="true"></i> <a href="https://scholar.google.com/citations?hl=en&amp;user=PoCabYwAAAAJ&amp;view_op=list_works&amp;sortby=pubdate" target="_blank" rel="noopener noreferrer">Google Scholar</a></div>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer>&copy; 2026 Kewei Li. All rights reserved.</footer>
 </body>
-
 </html>
